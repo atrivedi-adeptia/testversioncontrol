@@ -2,23 +2,23 @@
 <data>
     <AU_PROJECT>
         <au_projectOwner><![CDATA[null]]></au_projectOwner>
-        <au_permissionMask><![CDATA[777]]></au_permissionMask>
-        <au_groupOwner><![CDATA[IndigoGroup:127000000001107055548721600002]]></au_groupOwner>
         <au_entityName><![CDATA[Test]]></au_entityName>
-        <au_projectGroup><![CDATA[IndigoGroup:127000000001107055548721600002]]></au_projectGroup>
-        <au_userOwner><![CDATA[IndigoUser:127000000001107055536473900001]]></au_userOwner>
-        <au_modifiedBy><![CDATA[IndigoUser:127000000001107055536473900001]]></au_modifiedBy>
         <au_version><![CDATA[1]]></au_version>
-        <au_revision><![CDATA[null]]></au_revision>
-        <au_synchronized><![CDATA[null]]></au_synchronized>
+        <au_projectType><![CDATA[3700]]></au_projectType>
+        <au_groupOwner><![CDATA[IndigoGroup:127000000001107055548721600002]]></au_groupOwner>
+        <au_comments><![CDATA[null]]></au_comments>
+        <au_activeVersion><![CDATA[1]]></au_activeVersion>
+        <au_creationDate><![CDATA[2025-06-18T11:29:43]]></au_creationDate>
+        <au_projectGroup><![CDATA[IndigoGroup:127000000001107055548721600002]]></au_projectGroup>
+        <au_modifiedBy><![CDATA[IndigoUser:127000000001107055536473900001]]></au_modifiedBy>
         <au_previousVersion><![CDATA[]]></au_previousVersion>
         <au_modifiedDate><![CDATA[2025-06-18T11:29:43]]></au_modifiedDate>
-        <au_creationDate><![CDATA[2025-06-18T11:29:43]]></au_creationDate>
+        <au_userOwner><![CDATA[IndigoUser:127000000001107055536473900001]]></au_userOwner>
         <au_id><![CDATA[1384774558746316800]]></au_id>
+        <au_permissionMask><![CDATA[777]]></au_permissionMask>
+        <au_revision><![CDATA[ea2a71d2c75a6c98d1b06d7e015a04217eb5a383]]></au_revision>
         <au_description><![CDATA[Test]]></au_description>
-        <au_comments><![CDATA[null]]></au_comments>
-        <au_projectType><![CDATA[3700]]></au_projectType>
-        <au_activeVersion><![CDATA[1]]></au_activeVersion>
+        <au_synchronized><![CDATA[1]]></au_synchronized>
     </AU_PROJECT>
     <columnInfo dbtype="4">
         <column name="au_id" type="12"/>
