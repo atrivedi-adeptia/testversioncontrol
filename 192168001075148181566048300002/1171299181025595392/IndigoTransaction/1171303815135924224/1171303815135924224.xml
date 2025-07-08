@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+    <AU_TRANSACTION>
+        <au_activeVersion><![CDATA[1]]></au_activeVersion>
+        <au_id><![CDATA[1171303815135924224]]></au_id>
+        <au_flowDescriptor><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<AdeptiaPE xmlns="jelly:com.werken.blissed.jelly.BlissedTagLibrary" xmlns:version="4.7" xmlns:j="jelly:core" xmlns:abpm="jelly:com.adeptia.indigo.jelly.IndigoTagLibrary" xmlns:pd="jelly:com.adeptia.indigo.pd.ProcessDesignerTagLibrary">
+   <process name="mainProcess" start="startState" var="mainProcess">
+      <state name="startState">
+         <activity>
+            <abpm:installGlobalExceptionHandlers/>
+            <abpm:indigoGeneralVariables>
+               <abpm:params>
+                  <abpm:param activityLabel="Store the Structured Data" activityName="StructuredTarget" activityType="LanFileTarget" name="fileName" track="false">[ABPM_._ESCAPE_._CDATA_._START]$$Service.UnstructuredSource.fileName$$.$$structured.output.format$$[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+               </abpm:params>
+            </abpm:indigoGeneralVariables>
+            <abpm:indigoGlobalVariables>
+               <abpm:params>
+                  <abpm:param name="enableMultipart" track="false">[ABPM_._ESCAPE_._CDATA_._START]true[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+               </abpm:params>
+            </abpm:indigoGlobalVariables>
+         </activity>
+      </state>
+      <state name="Task_1dmhf53">
+         <activity>
+            <abpm:activity name="CallUnstructuredAPI" async="false" id="1171301848447750144" signal="SignalComplete" type="WsRestConsumer">
+               <abpm:params>
+                  <abpm:param name="restartTriesCount">[ABPM_._ESCAPE_._CDATA_._START]0[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="restartWaitTime">[ABPM_._ESCAPE_._CDATA_._START]60[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="source">[ABPM_._ESCAPE_._CDATA_._START]UnstructuredSource[ReadtheUnstructuredData][ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="streamNames">[ABPM_._ESCAPE_._CDATA_._START]CallUnstructuredAIService[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="targetConnectTimeout">[ABPM_._ESCAPE_._CDATA_._START]300[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="characterSetEncoding">[ABPM_._ESCAPE_._CDATA_._START]UTF-8[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="generateStream">[ABPM_._ESCAPE_._CDATA_._START]true[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="Consume Stream">[ABPM_._ESCAPE_._CDATA_._START]true[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+               </abpm:params>
+            </abpm:activity>
+         </activity>
+      </state>
+      <state name="Task_1u6mmky">
+         <activity>
+            <abpm:activity name="StructuredTarget" async="false" id="1171303754473705472" signal="SignalComplete" type="LanFileTarget">
+               <abpm:params>
+                  <abpm:param name="restartTriesCount">[ABPM_._ESCAPE_._CDATA_._START]0[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="restartWaitTime">[ABPM_._ESCAPE_._CDATA_._START]60[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="source">[ABPM_._ESCAPE_._CDATA_._START]CallUnstructuredAPI[CallUnstructuredAIService][ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="streamNames">[ABPM_._ESCAPE_._CDATA_._START][ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="targetConnectTimeout">[ABPM_._ESCAPE_._CDATA_._START]300[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="append">[ABPM_._ESCAPE_._CDATA_._START]false[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+               </abpm:params>
+            </abpm:activity>
+         </activity>
+      </state>
+      <state name="Task_1vcql1q">
+         <activity>
+            <abpm:activity name="UnstructuredSource" async="false" id="1171339258002968576" jtaEnlist="false" signal="SignalComplete" type="LanFileSource">
+               <abpm:params>
+                  <abpm:param name="restartTriesCount">[ABPM_._ESCAPE_._CDATA_._START]0[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="restartWaitTime">[ABPM_._ESCAPE_._CDATA_._START]60[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="streamNames">[ABPM_._ESCAPE_._CDATA_._START]ReadtheUnstructuredData[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="targetConnectTimeout">[ABPM_._ESCAPE_._CDATA_._START]300[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="eventContextEnabled">[ABPM_._ESCAPE_._CDATA_._START]true[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+               </abpm:params>
+            </abpm:activity>
+         </activity>
+      </state>
+      <state name="Task_1yh7fhp">
+         <activity>
+            <abpm:activity name="ReadFieldNames_DM" async="false" id="1171503215149879296" signal="SignalComplete" type="DataMapping">
+               <abpm:params>
+                  <abpm:param name="restartTriesCount">[ABPM_._ESCAPE_._CDATA_._START]0[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="restartWaitTime">[ABPM_._ESCAPE_._CDATA_._START]60[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="streamNames">[ABPM_._ESCAPE_._CDATA_._START]null[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="targetConnectTimeout">[ABPM_._ESCAPE_._CDATA_._START]300[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="characterSetEncoding">[ABPM_._ESCAPE_._CDATA_._START]UTF-8[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="generateStream">[ABPM_._ESCAPE_._CDATA_._START]false[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="Consume Stream">[ABPM_._ESCAPE_._CDATA_._START]false[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="errorRecordHandleType">[ABPM_._ESCAPE_._CDATA_._START]File[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="transformerType">[ABPM_._ESCAPE_._CDATA_._START]Saxon[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+               </abpm:params>
+            </abpm:activity>
+         </activity>
+      </state>
+      <state name="StartEvent_1">
+         <activity>
+            <pd:event type="start" subType="none"/>
+         </activity>
+      </state>
+      <state name="EndEvent_0kkdsgb">
+         <activity>
+            <pd:event type="end" subType="none"/>
+         </activity>
+      </state>
+      <transition from="startState" to="StartEvent_1"/>
+      <transition from="Task_1dmhf53" to="Task_1u6mmky"/>
+      <transition from="Task_1u6mmky" to="EndEvent_0kkdsgb"/>
+      <transition from="Task_1vcql1q" to="Task_1dmhf53"/>
+      <transition from="StartEvent_1" to="Task_1yh7fhp"/>
+      <transition from="Task_1yh7fhp" to="Task_1vcql1q"/>
+   </process>
+</AdeptiaPE>
+]]></au_flowDescriptor>
+        <au_modifiedDate><![CDATA[2024-02-08T09:48:55]]></au_modifiedDate>
+        <au_advanced><![CDATA[1]]></au_advanced>
+        <au_revision><![CDATA[null]]></au_revision>
+        <au_projectOwner><![CDATA[Project:1171299181025595392]]></au_projectOwner>
+        <au_modifiedBy><![CDATA[IndigoUser:192168001077140566117215700004]]></au_modifiedBy>
+        <au_childFlows><![CDATA[null]]></au_childFlows>
+        <au_activeFlag><![CDATA[1]]></au_activeFlag>
+        <au_description><![CDATA[Process to convert unstructured data to a structured data using AI]]></au_description>
+        <au_recoverable><![CDATA[1]]></au_recoverable>
+        <au_repositoryAction><![CDATA[L]]></au_repositoryAction>
+        <au_trackVariables><![CDATA[<?xml version="1.0"?><Variables></Variables>]]></au_trackVariables>
+        <au_retainVarXml><![CDATA[0]]></au_retainVarXml>
+        <au_userOwner><![CDATA[IndigoUser:192168001077140566117215700004]]></au_userOwner>
+        <au_realTimeConfiguration><![CDATA[0]]></au_realTimeConfiguration>
+        <au_permissionMask><![CDATA[770]]></au_permissionMask>
+        <au_priority><![CDATA[LOW]]></au_priority>
+        <au_templateName><![CDATA[Process Designer]]></au_templateName>
+        <au_OldFlowDescriptor><![CDATA[null]]></au_OldFlowDescriptor>
+        <au_previousVersion><![CDATA[null]]></au_previousVersion>
+        <au_entityName><![CDATA[ConvertUnstructuredToStructured_PF]]></au_entityName>
+        <au_version><![CDATA[1]]></au_version>
+        <au_comments><![CDATA[null]]></au_comments>
+        <au_dataEncryptionAtRest><![CDATA[useGlobalPolicy]]></au_dataEncryptionAtRest>
+        <au_webPdXml><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:ap="http://adeptia.com/schema/bpmn/ap" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" id="sample-diagram" targetNamespace="http://bpmn.io/schema/bpmn" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd">
+  <bpmn2:process id="mainProcess" isExecutable="false">
+    <bpmn2:extensionElements>
+      <ap:variables>
+        <ap:variable track="false">
+          <ap:name>[ABPM_._ESCAPE_._CDATA_._START]enableMultipart[ABPM_._ESCAPE_._CDATA_._END]</ap:name>
+          <ap:value>[ABPM_._ESCAPE_._CDATA_._START]true[ABPM_._ESCAPE_._CDATA_._END]</ap:value>
+          <ap:type>[ABPM_._ESCAPE_._CDATA_._START]Global[ABPM_._ESCAPE_._CDATA_._END]</ap:type>
+        </ap:variable>
+        <ap:variable track="false">
+          <ap:name>[ABPM_._ESCAPE_._CDATA_._START]fileName[ABPM_._ESCAPE_._CDATA_._END]</ap:name>
+          <ap:value>[ABPM_._ESCAPE_._CDATA_._START]$$Service.UnstructuredSource.fileName$$.$$structured.output.format$$[ABPM_._ESCAPE_._CDATA_._END]</ap:value>
+          <ap:activityName>[ABPM_._ESCAPE_._CDATA_._START]StructuredTarget[ABPM_._ESCAPE_._CDATA_._END]</ap:activityName>
+          <ap:activityLabel>[ABPM_._ESCAPE_._CDATA_._START]Store the Structured Data[ABPM_._ESCAPE_._CDATA_._END]</ap:activityLabel>
+          <ap:activityType>[ABPM_._ESCAPE_._CDATA_._START]LanFileTarget[ABPM_._ESCAPE_._CDATA_._END]</ap:activityType>
+          <ap:type>[ABPM_._ESCAPE_._CDATA_._START]General[ABPM_._ESCAPE_._CDATA_._END]</ap:type>
+        </ap:variable>
+      </ap:variables>
+      <ap:properties>
+        <ap:property name="version">[ABPM_._ESCAPE_._CDATA_._START]1.0[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+      </ap:properties>
+    </bpmn2:extensionElements>
+    <bpmn2:startEvent id="StartEvent_1" name="Start Event">
+      <bpmn2:outgoing>SequenceFlow_1ns1i16</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <bpmn2:task id="Task_1dmhf53" name="Call Unstructured AI Service">
+      <bpmn2:extensionElements>
+        <ap:streams>
+          <ap:stream name="CallUnstructuredAIService" id="stream_0kbb5sm" dataObjectReferenceId="" consumer="Task_1u6mmky" error="false" visible="false" source="Task_1dmhf53" />
+        </ap:streams>
+        <ap:node>
+          <ap:attribute name="label">[ABPM_._ESCAPE_._CDATA_._START]Call Unstructured AI Service[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="type">[ABPM_._ESCAPE_._CDATA_._START]WsRestConsumer[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="id">[ABPM_._ESCAPE_._CDATA_._START]1171301848447750144[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="name">[ABPM_._ESCAPE_._CDATA_._START]CallUnstructuredAPI[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="async">[ABPM_._ESCAPE_._CDATA_._START]false[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="signal">[ABPM_._ESCAPE_._CDATA_._START]SignalComplete[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="comments">[ABPM_._ESCAPE_._CDATA_._START][ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="serverEntity">[ABPM_._ESCAPE_._CDATA_._START]false[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="serviceType">[ABPM_._ESCAPE_._CDATA_._START]activity[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="uiType">[ABPM_._ESCAPE_._CDATA_._START]WsRestConsumer[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+        </ap:node>
+        <ap:properties>
+          <ap:property name="restartTriesCount">[ABPM_._ESCAPE_._CDATA_._START]0[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="restartWaitTime">[ABPM_._ESCAPE_._CDATA_._START]60[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="source">[ABPM_._ESCAPE_._CDATA_._START]UnstructuredSource[ReadtheUnstructuredData][ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="streamNames">[ABPM_._ESCAPE_._CDATA_._START]CallUnstructuredAIService[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="targetConnectTimeout">[ABPM_._ESCAPE_._CDATA_._START]300[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="characterSetEncoding">[ABPM_._ESCAPE_._CDATA_._START]UTF-8[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="generateStream">[ABPM_._ESCAPE_._CDATA_._START]true[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="consumeStream">[ABPM_._ESCAPE_._CDATA_._START]true[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+        </ap:properties>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_1wk64mv</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_092xqrx</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:task id="Task_1u6mmky" name="Store the Structured Data">
+      <bpmn2:extensionElements>
+        <ap:node>
+          <ap:attribute name="label">[ABPM_._ESCAPE_._CDATA_._START]Store the Structured Data[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="type">[ABPM_._ESCAPE_._CDATA_._START]LanFileTarget[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="id">[ABPM_._ESCAPE_._CDATA_._START]1171303754473705472[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="name">[ABPM_._ESCAPE_._CDATA_._START]StructuredTarget[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="async">[ABPM_._ESCAPE_._CDATA_._START]false[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="signal">[ABPM_._ESCAPE_._CDATA_._START]SignalComplete[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="comments">[ABPM_._ESCAPE_._CDATA_._START][ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="serverEntity">[ABPM_._ESCAPE_._CDATA_._START]false[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="serviceType">[ABPM_._ESCAPE_._CDATA_._START]activity[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="uiType">[ABPM_._ESCAPE_._CDATA_._START]LanFileTarget[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+        </ap:node>
+        <ap:properties>
+          <ap:property name="restartTriesCount">[ABPM_._ESCAPE_._CDATA_._START]0[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="restartWaitTime">[ABPM_._ESCAPE_._CDATA_._START]60[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="source">[ABPM_._ESCAPE_._CDATA_._START]CallUnstructuredAPI[CallUnstructuredAIService][ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="streamNames">[ABPM_._ESCAPE_._CDATA_._START][ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="targetConnectTimeout">[ABPM_._ESCAPE_._CDATA_._START]300[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="append">[ABPM_._ESCAPE_._CDATA_._START]false[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+        </ap:properties>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_092xqrx</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_106bm4r</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:endEvent id="EndEvent_0kkdsgb" name="End Event">
+      <bpmn2:extensionElements>
+        <ap:properties>
+          <ap:property name="attachNotification">[ABPM_._ESCAPE_._CDATA_._START]false[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="mailNotification">[ABPM_._ESCAPE_._CDATA_._START][ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+        </ap:properties>
+        <ap:node>
+          <ap:attribute name="label">[ABPM_._ESCAPE_._CDATA_._START]End Event[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="comments">[ABPM_._ESCAPE_._CDATA_._START][ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+        </ap:node>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_106bm4r</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:sequenceFlow id="SequenceFlow_092xqrx" sourceRef="Task_1dmhf53" targetRef="Task_1u6mmky" />
+    <bpmn2:sequenceFlow id="SequenceFlow_106bm4r" sourceRef="Task_1u6mmky" targetRef="EndEvent_0kkdsgb" />
+    <bpmn2:task id="Task_1vcql1q" name="Read the Unstructured Data">
+      <bpmn2:extensionElements>
+        <ap:streams>
+          <ap:stream name="ReadtheUnstructuredData" id="stream_1nhwfmg" dataObjectReferenceId="" consumer="Task_1dmhf53" error="false" visible="false" source="Task_1vcql1q" />
+        </ap:streams>
+        <ap:node>
+          <ap:attribute name="label">[ABPM_._ESCAPE_._CDATA_._START]Read the Unstructured Data[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="type">[ABPM_._ESCAPE_._CDATA_._START]LanFileSource[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="id">[ABPM_._ESCAPE_._CDATA_._START]1171339258002968576[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="name">[ABPM_._ESCAPE_._CDATA_._START]UnstructuredSource[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="async">[ABPM_._ESCAPE_._CDATA_._START]false[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="signal">[ABPM_._ESCAPE_._CDATA_._START]SignalComplete[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="comments">[ABPM_._ESCAPE_._CDATA_._START][ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="serverEntity">[ABPM_._ESCAPE_._CDATA_._START]false[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="serviceType">[ABPM_._ESCAPE_._CDATA_._START]activity[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="uiType">[ABPM_._ESCAPE_._CDATA_._START]LanFileSource[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="jtaEnlist">[ABPM_._ESCAPE_._CDATA_._START]false[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+        </ap:node>
+        <ap:properties>
+          <ap:property name="restartTriesCount">[ABPM_._ESCAPE_._CDATA_._START]0[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="restartWaitTime">[ABPM_._ESCAPE_._CDATA_._START]60[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="source">[ABPM_._ESCAPE_._CDATA_._START][ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="streamNames">[ABPM_._ESCAPE_._CDATA_._START]ReadtheUnstructuredData[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="targetConnectTimeout">[ABPM_._ESCAPE_._CDATA_._START]300[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="eventContextEnabled">[ABPM_._ESCAPE_._CDATA_._START]true[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+        </ap:properties>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_146hsyy</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_1wk64mv</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="SequenceFlow_1wk64mv" sourceRef="Task_1vcql1q" targetRef="Task_1dmhf53" />
+    <bpmn2:task id="Task_1yh7fhp" name="Read the Field Names to be Extracted">
+      <bpmn2:extensionElements>
+        <ap:node>
+          <ap:attribute name="label">[ABPM_._ESCAPE_._CDATA_._START]Read the Field Names to be Extracted[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="type">[ABPM_._ESCAPE_._CDATA_._START]DataMapping[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="id">[ABPM_._ESCAPE_._CDATA_._START]1171503215149879296[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="name">[ABPM_._ESCAPE_._CDATA_._START]ReadFieldNames_DM[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="async">[ABPM_._ESCAPE_._CDATA_._START]false[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="signal">[ABPM_._ESCAPE_._CDATA_._START]SignalComplete[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="comments">[ABPM_._ESCAPE_._CDATA_._START][ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="serverEntity">[ABPM_._ESCAPE_._CDATA_._START]false[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="serviceType">[ABPM_._ESCAPE_._CDATA_._START]activity[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="uiType">[ABPM_._ESCAPE_._CDATA_._START]DataMapping[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+        </ap:node>
+        <ap:properties>
+          <ap:property name="restartTriesCount">[ABPM_._ESCAPE_._CDATA_._START]0[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="restartWaitTime">[ABPM_._ESCAPE_._CDATA_._START]60[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="source">[ABPM_._ESCAPE_._CDATA_._START][ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="streamNames">[ABPM_._ESCAPE_._CDATA_._START]null[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="targetConnectTimeout">[ABPM_._ESCAPE_._CDATA_._START]300[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="characterSetEncoding">[ABPM_._ESCAPE_._CDATA_._START]UTF-8[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="generateStream">[ABPM_._ESCAPE_._CDATA_._START]false[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="consumeStream">[ABPM_._ESCAPE_._CDATA_._START]false[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="errorRecordHandleType">[ABPM_._ESCAPE_._CDATA_._START]File[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="transformerType">[ABPM_._ESCAPE_._CDATA_._START]Saxon[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+        </ap:properties>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_1ns1i16</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_146hsyy</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="SequenceFlow_1ns1i16" sourceRef="StartEvent_1" targetRef="Task_1yh7fhp" />
+    <bpmn2:sequenceFlow id="SequenceFlow_146hsyy" sourceRef="Task_1yh7fhp" targetRef="Task_1vcql1q" />
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="mainProcess">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1" bioc:stroke="#808080">
+        <dc:Bounds x="-312" y="200" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="-321" y="236" width="55" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_1dmhf53_di" bpmnElement="Task_1dmhf53" bioc:stroke="#808080" bioc:fill="url(#task_color)">
+        <dc:Bounds x="329" y="188" width="130" height="60" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_1u6mmky_di" bpmnElement="Task_1u6mmky" bioc:stroke="#808080" bioc:fill="url(#task_color)">
+        <dc:Bounds x="583" y="188" width="130" height="60" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_0kkdsgb_di" bpmnElement="EndEvent_0kkdsgb" bioc:stroke="#808080">
+        <dc:Bounds x="874" y="200" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="866" y="240" width="52" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_092xqrx_di" bpmnElement="SequenceFlow_092xqrx" bioc:stroke="#008000">
+        <di:waypoint x="459" y="218" />
+        <di:waypoint x="583" y="218" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="476" y="197" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_106bm4r_di" bpmnElement="SequenceFlow_106bm4r" bioc:stroke="#008000">
+        <di:waypoint x="713" y="218" />
+        <di:waypoint x="874" y="218" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="748.5" y="197" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Task_1vcql1q_di" bpmnElement="Task_1vcql1q" bioc:stroke="#808080" bioc:fill="url(#task_color)">
+        <dc:Bounds x="27" y="188" width="130" height="60" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1wk64mv_di" bpmnElement="SequenceFlow_1wk64mv" bioc:stroke="#808080">
+        <di:waypoint x="157" y="218" />
+        <di:waypoint x="329" y="218" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="198" y="196.5" width="90" height="13" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Task_1yh7fhp_di" bpmnElement="Task_1yh7fhp" bioc:stroke="#808080" bioc:fill="url(#task_color)">
+        <dc:Bounds x="-202" y="188" width="130" height="60" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1ns1i16_di" bpmnElement="SequenceFlow_1ns1i16" bioc:stroke="#808080">
+        <di:waypoint x="-276" y="218" />
+        <di:waypoint x="-202" y="218" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="-239" y="197" width="0" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_146hsyy_di" bpmnElement="SequenceFlow_146hsyy" bioc:stroke="#808080">
+        <di:waypoint x="-72" y="218" />
+        <di:waypoint x="27" y="218" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="-22.5" y="197" width="0" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>
+]]></au_webPdXml>
+        <au_connectDashboardLogging><![CDATA[1]]></au_connectDashboardLogging>
+        <au_groupOwner><![CDATA[IndigoGroup:192168001075148181566048300002]]></au_groupOwner>
+        <au_logRetentionAction><![CDATA[L]]></au_logRetentionAction>
+        <au_creationDate><![CDATA[2023-11-06T23:23:11]]></au_creationDate>
+        <au_synchronized><![CDATA[0]]></au_synchronized>
+        <au_loggingLevel><![CDATA[ERROR]]></au_loggingLevel>
+    </AU_TRANSACTION>
+    <columnInfo dbtype="4">
+        <column name="au_id" type="12"/>
+        <column name="au_version" type="12"/>
+        <column name="au_previousVersion" type="12"/>
+        <column name="au_activeVersion" type="3"/>
+        <column name="au_entityName" type="12"/>
+        <column name="au_userOwner" type="12"/>
+        <column name="au_groupOwner" type="12"/>
+        <column name="au_permissionMask" type="12"/>
+        <column name="au_description" type="12"/>
+        <column name="au_comments" type="12"/>
+        <column name="au_modifiedBy" type="12"/>
+        <column name="au_creationDate" type="93"/>
+        <column name="au_modifiedDate" type="93"/>
+        <column name="au_revision" type="12"/>
+        <column name="au_synchronized" type="3"/>
+        <column name="au_projectOwner" type="12"/>
+        <column name="au_flowDescriptor" type="-1"/>
+        <column name="au_activeFlag" type="3"/>
+        <column name="au_templateName" type="12"/>
+        <column name="au_advanced" type="3"/>
+        <column name="au_loggingLevel" type="12"/>
+        <column name="au_priority" type="12"/>
+        <column name="au_repositoryAction" type="12"/>
+        <column name="au_logRetentionAction" type="12"/>
+        <column name="au_childFlows" type="-1"/>
+        <column name="au_trackVariables" type="-1"/>
+        <column name="au_retainVarXml" type="3"/>
+        <column name="au_recoverable" type="3"/>
+        <column name="au_realTimeConfiguration" type="3"/>
+        <column name="au_webPdXml" type="-1"/>
+        <column name="au_OldFlowDescriptor" type="-1"/>
+        <column name="au_dataEncryptionAtRest" type="12"/>
+        <column name="au_connectDashboardLogging" type="3"/>
+    </columnInfo>
+</data>
